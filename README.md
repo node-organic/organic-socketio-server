@@ -1,11 +1,10 @@
 # organic-socketio-server
 
-Organelle wrapping socket.io v1.2.1
+Organelle wrapping socket.io v2.1.0
 
 ## dna
 
-    "organic-socketio-server": {
-      "source": "node_modules/organic-socketio-server",
+    {
       "attachToChemical": {
         "type": "ExpressServer",
         "propertyName": "server"
@@ -23,13 +22,17 @@ Organelle wrapping socket.io v1.2.1
 
 Path to a module relative to `process.cwd()` having the following implementation
 
-    module.exports = function(io, done) {
+    module.exports = function(options, done) {
+      let plasma = options.plasma
+      let dna = options.dna
+      let io = options.io
+      let httpServer = options.httpServer
       done() // must be called in order to emit.ready
     }
 
 ### `options`
 
-Object having [socketio v1.2.1 options](http://socket.io/docs/server-api/#server(opts:object)) structure.
+Object having [socketio v2.1.0 options](https://socket.io/docs/server-api/#new-server-httpserver-options) structure.
 
 ## Reacts on chemicals
 

@@ -42,10 +42,10 @@ module.exports = class SocketIOServer {
     }
   }
   attach (httpServer) {
-    if (this.emit && this.emit.connection) {
-      this.io.on('connection', (socket) => {
+    if (this.dna.emit && this.dna.emit.connection) {
+      this.io.on('connect', (socket) => {
         this.plasma.emit({
-          type: this.emit.connection,
+          type: this.dna.emit.connection,
           socket: socket
         })
       })

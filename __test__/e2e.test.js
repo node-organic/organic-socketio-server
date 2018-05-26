@@ -60,7 +60,8 @@ test('emits connection', (done) => {
   expect(instance.io).toBeDefined()
   expect(instance.plasma).toBeDefined()
   expect(instance.dna).toBeDefined()
-  ioclient('http://localhost:13371', {
+  let client = ioclient('http://localhost:13371', {
     transports: ['websocket']
   })
+  client.close()
 })
